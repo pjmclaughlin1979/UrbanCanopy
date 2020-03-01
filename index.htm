@@ -16,6 +16,14 @@
       color: rgb(50, 50, 50);
       font-family: "Avenir Next W00","Helvetica Neue",Helvetica,Arial,sans-serif;
     }
+    #DisplayButton{
+      max-width: 100px;
+      max-height: 50px;
+      padding: 2em 4em 2em 2em;
+      font-size: 1.1em;
+      text-align: center;
+
+}
 
     #sidePanelInfo {
       max-width: 350px;
@@ -24,7 +32,6 @@
       text-align: center;
       background: linear-gradient(to right, white 80%, transparent);
       box-shadow: none;
-      border-collapse: collapse;
       box-sizing: border-box;
     }
 
@@ -249,16 +256,28 @@
       }
 
       view.ui.add("sidePanelInfo", "top-left");
+      view.ui.add("DisplayButton", "top-right");
+      
 
     });
-
+    function myFunction() {
+      var x = document.getElementById("sidePanelInfo");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+}
   </script>
 </head>
 
 <body>
   <div id="viewDiv">
+    <div id="DisplayButton">
+      <button onclick="myFunction()">Display Panel</button>
+    </div>
     <div id ="sidePanelInfo">
-      <h1>Greenify Belfast</h1>
+      <h1>Belfast Urban Canopy</h1>
       <p>Belfast has a plan to plant one million Trees over the next 15 years. It currently has <a class="streetTree" href="https://www.opendatani.gov.uk/showcase/the-public-trees-of-belfast-city" target="_blank">15,500 'Public' trees in the cityscape (Park & Street)</a>.
       So where are the new trees going to be planted? Imagine you could plant trees on buildings to help reach that target... currently there are <span class="buildingTree" id="plantedTrees">0 building trees</span>.</p>
       <p>Planting trees on buildings with this app is a breeze! Just hover over the buildings... when you are closer
@@ -269,7 +288,6 @@
       <button id="plantController">Plant some trees</button>
     </div>
   </div>
-
 </body>
 
 </html>
